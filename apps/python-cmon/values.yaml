@@ -1,0 +1,12 @@
+# Helm values for app python-cmon
+
+appName: python-cmon
+namespace: python-cmon-ns-dev
+
+image:
+  repository: nishank840/python-cmon
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  port: 8080
