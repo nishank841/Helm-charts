@@ -1,0 +1,12 @@
+# Helm values for app python-duggs
+
+appName: python-duggs
+namespace: python-duggs-ns-dev
+
+image:
+  repository: nishank840/python-duggs
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  port: 8080
