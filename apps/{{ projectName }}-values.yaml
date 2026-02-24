@@ -1,0 +1,12 @@
+# Helm values for app {{ projectName }}
+
+appName: {{ projectName }}
+namespace: {{ projectName }}-ns-dev
+
+image:
+  repository: nishank840/{{ projectName }}
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  port: 8080
