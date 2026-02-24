@@ -17,15 +17,25 @@ jobs:
       - uses: actions/github-script@v7
         with:
           script: |
-            const pr = context.payload.pull_request;
-
+            const { owner, repo } = context.repo;
+            const pull_number = context.payload.pull_request.number;
+      
+            // Re-fetch PR to get latest mergeable state
+            const { data: pr } = await github.rest.pulls.get({
+              owner,
+              repo,
+              pull_number
+            });
+      
+            console.log("Mergeable state:", pr.mergeable_state);
+      
             if (pr.mergeable_state !== "clean") {
               core.setFailed(`PR not ready. Current state: ${pr.mergeable_state}`);
             }
-
-            await github.pulls.merge({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: pr.number,
+      
+            await github.rest.pulls.merge({
+              owner,
+              repo,
+              pull_number,
               merge_method: "squash"
             });
