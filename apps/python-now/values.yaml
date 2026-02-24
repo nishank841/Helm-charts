@@ -1,0 +1,12 @@
+# Helm values for app python-now
+
+appName: python-now
+namespace: python-now-ns-dev
+
+image:
+  repository: nishank840/python-now
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  port: 8080
