@@ -1,0 +1,12 @@
+# Helm values for app python-values
+
+appName: python-values
+namespace: python-values-ns-dev
+
+image:
+  repository: nishank840/python-values
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  port: 8080
