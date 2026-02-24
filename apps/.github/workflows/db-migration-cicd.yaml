@@ -1,0 +1,24 @@
+name: Build Docker Image
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      PROJECT_NAME: ${{ values.name }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Echo Project Name
+        run: echo "Project name from Backstage is $PROJECT_NAME"
+
+      - name: Build Docker image
+        run: docker build -t $PROJECT_NAME:latest .
