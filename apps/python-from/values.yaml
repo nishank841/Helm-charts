@@ -10,3 +10,6 @@ image:
 
 service:
   port: 8080
+
+ingress:
+  enabled: false
