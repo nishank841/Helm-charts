@@ -1,9 +1,0 @@
-appName: 
-namespace: -ns-dev
-
-image:
-  repository: nishank840/
-  tag: latest
-  pullPolicy: IfNotPresent
-service:
-  port: 8080
