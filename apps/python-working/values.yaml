@@ -1,0 +1,12 @@
+# Helm values for app python-working
+
+appName: python-working
+namespace: python-working-ns-dev
+
+image:
+  repository: nishank840/python-working
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  port: 8080
