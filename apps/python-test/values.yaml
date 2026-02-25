@@ -4,9 +4,12 @@ appName: python-test
 namespace: python-test-ns-dev
 
 image:
-  repository: nishank840/python-test
+  repository: nginx
   tag: latest
   pullPolicy: IfNotPresent
 
 service:
-  port: 8080
+  port: 80
+
+ingress:
+  enabled: false
