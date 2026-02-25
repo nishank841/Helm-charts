@@ -1,15 +1,13 @@
-# Helm values for app python-from
-
 appName: python-from
 namespace: python-from-ns-dev
 
 image:
-  repository: nishank840/python-from
+  repository: nginx
   tag: latest
   pullPolicy: IfNotPresent
 
 service:
-  port: 8080
+  port: 80
 
 ingress:
   enabled: false
