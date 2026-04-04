@@ -1,7 +1,7 @@
-# Helm values for app python-888
+# Helm values for app python-999
 
-appName: python-888
-namespace: python-888-ns-dev
+appName: python-999
+namespace: python-999-ns-dev
 
 image:
   repository: nginx
