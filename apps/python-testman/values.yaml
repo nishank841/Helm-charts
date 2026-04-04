@@ -1,0 +1,15 @@
+# Helm values for app python-testman
+
+appName: python-testman
+namespace: python-testman-ns-dev
+
+image:
+  repository: nginx
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  port: 80
+
+ingress:
+  enabled: false
