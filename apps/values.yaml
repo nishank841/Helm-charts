@@ -1,7 +1,7 @@
-# Helm values for app python-777
+# Helm values for app python-555
 
-appName: python-777
-namespace: python-777-ns-dev
+appName: python-555
+namespace: python-555-ns-dev
 
 image:
   repository: ghcr.io/nishank841/budget-app
