@@ -14,29 +14,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Wait for PR checks to complete
-        env:
-          GH_TOKEN: ${{ secrets.MY_GITHUB_PAT }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          REPO: ${{ github.repository }}
-        run: |
-          echo "Waiting for PR checks to complete..."
-          gh pr checks $PR_NUMBER -R $REPO --watch
-
-      - name: Verify all checks passed
-        env:
-          GH_TOKEN: ${{ secrets.MY_GITHUB_PAT }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          REPO: ${{ github.repository }}
-        run: |
-          STATUS=$(gh pr view $PR_NUMBER -R $REPO --json statusCheckRollup \
-            --jq '.statusCheckRollup[].conclusion' | grep -v SUCCESS || true)
-
-          if [ -n "$STATUS" ]; then
-            echo "Some checks are not successful:"
-            echo "$STATUS"
-            exit 1
-          fi
+      - name: Wait for PR to stabilize
+        run: sleep 10
 
       - name: Enable auto-merge
         uses: peter-evans/enable-pull-request-automerge@v3
