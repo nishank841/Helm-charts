@@ -1,0 +1,12 @@
+# Helm values for app python-duggu
+
+appName: python-val
+namespace: python-val-ns-dev
+
+image:
+  repository: nishank840/python-val
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  port: 8080
