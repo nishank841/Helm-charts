@@ -1,0 +1,15 @@
+# Helm values for app python-amazon
+
+appName: python-amazon
+namespace: python-amazon-ns-dev
+
+image:
+  repository: ghcr.io/nishank841/budget-app
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  port: 80
+
+ingress:
+  enabled: false
