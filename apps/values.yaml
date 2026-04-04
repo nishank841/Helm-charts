@@ -1,10 +1,10 @@
-# Helm values for app python-999
+# Helm values for app python-777
 
-appName: python-999
-namespace: python-999-ns-dev
+appName: python-777
+namespace: python-777-ns-dev
 
 image:
-  repository: nginx
+  repository: ghcr.io/nishank841/budget-app
   tag: latest
   pullPolicy: IfNotPresent
 
