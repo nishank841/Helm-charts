@@ -1,0 +1,15 @@
+# Helm values for app python-333
+
+appName: python-333
+namespace: python-333-ns-dev
+
+image:
+  repository: ghcr.io/nishank841/budget-app
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  port: 80
+
+ingress:
+  enabled: false
