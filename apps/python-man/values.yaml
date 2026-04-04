@@ -1,0 +1,15 @@
+# Helm values for app python-man
+
+appName: python-man
+namespace: python-man-ns-dev
+
+image:
+  repository: nginx
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  port: 80
+
+ingress:
+  enabled: false
