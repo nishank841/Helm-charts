@@ -14,6 +14,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Install GitHub CLI
+        uses: cli/cli@v3
+
+      - name: Wait for PR checks to complete
+        env:
+          GH_TOKEN: ${{ secrets.MY_GITHUB_PAT }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          echo "Waiting for PR checks to complete..."
+          gh pr checks $PR_NUMBER --watch
+
+      - name: Verify all checks passed
+        env:
+          GH_TOKEN: ${{ secrets.MY_GITHUB_PAT }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          echo "Verifying check conclusions..."
+          STATUS=$(gh pr view $PR_NUMBER --json statusCheckRollup \
+            --jq '.statusCheckRollup[].conclusion' | grep -v SUCCESS || true)
+
+          if [ -n "$STATUS" ]; then
+            echo "Some checks are not successful:"
+            echo "$STATUS"
+            exit 1
+          fi
+
       - name: Enable auto-merge
         uses: peter-evans/enable-pull-request-automerge@v3
         with:
