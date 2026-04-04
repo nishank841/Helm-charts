@@ -1,0 +1,15 @@
+# Helm values for app python-888
+
+appName: python-888
+namespace: python-888-ns-dev
+
+image:
+  repository: nginx
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  port: 80
+
+ingress:
+  enabled: false
