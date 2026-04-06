@@ -1,0 +1,15 @@
+# Helm values for app python-image
+
+appName: python-image
+namespace: python-image-ns-dev
+
+image:
+  repository: ghcr.io/nishank841/budget-app
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  port: 80
+
+ingress:
+  enabled: false
