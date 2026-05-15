@@ -1,0 +1,15 @@
+# Helm values for app python-test124
+
+appName: python-test124
+namespace: python-test124-ns-dev
+
+image:
+  repository: ghcr.io/nishank841/budget-app
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  port: 80
+
+ingress:
+  enabled: false
